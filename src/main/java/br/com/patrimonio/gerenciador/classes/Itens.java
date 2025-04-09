@@ -1,5 +1,6 @@
 package br.com.patrimonio.gerenciador.classes;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -15,15 +16,21 @@ import lombok.Setter;
 @Entity
 @Table(name = "itens")
 public class Itens{
+    
+    @Column(name = "npatrimonio")
     @Id
     private String nPatrimonio;
+    @Column(name = "nantigo")
     private String nAntigo;
     private String descricao;
     private String conservacao;
+    @Column(name = "valorbem")
     private float valorBem;
     private ItensEstado state;
     private String foto;
+    @Column(name = "salaregistrada")
     private String salaRegistrada;
+    @Column(name = "salaatual")
     private String salaAtual;
     
     public Itens(String nPatrimonio, String nAntigo, String descricao, String conservacao, float valorBem, String foto, String salaRegistrada, String salaAtual) {
