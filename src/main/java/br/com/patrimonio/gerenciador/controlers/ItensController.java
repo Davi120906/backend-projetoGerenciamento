@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.patrimonio.gerenciador.classes.BuscarRequest;
 import br.com.patrimonio.gerenciador.classes.Itens;
 import br.com.patrimonio.gerenciador.services.ItensService;
 
@@ -39,5 +40,9 @@ public class ItensController {
     @PutMapping(path = "movimentacao/{npatrimonio}")
     public void moverItem(@PathVariable("npatrimonio") String npatrimonio, @RequestBody String salaAtual){
         itensService.moverItem(npatrimonio, salaAtual);
+    }
+    @GetMapping(path = "buscar")
+    public List<Itens> buscarPorParametro(@RequestBody BuscarRequest buscarRequest){
+        return itensService.buscarPorParametro(buscarRequest.getTipoBusca(), buscarRequest.getBusca());
     }
 }
