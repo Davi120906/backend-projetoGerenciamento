@@ -53,23 +53,29 @@ public class ItensService {
     }
     public List<Itens> buscarPorParametro(String tipoBusca, String busca){
         switch(tipoBusca.toLowerCase()){
-            case "patrimonio":
-            return itensRepository.findByNumeroPatrimonio(busca);
-            case "antigo":
-            return itensRepository.findByNAntigo(busca);
-            case "nome":
-            return itensRepository.findByDescricao(busca);
-            case "valor":
-            float valor = Float.parseFloat(busca.replace(",", "."));
-            return itensRepository.findByValorBem(valor);
-            case "localregistrado":
-            return itensRepository.findBySalaRegistrada(busca);
-            case "localatual":
-            return itensRepository.findBySalaAtual(busca);
-            case "conservacao":
-            return itensRepository.findByConservacao(busca);
-            default:
-            throw new IllegalArgumentException("ERRO PARAMETRO INVALIDO");
+            case "patrimonio" -> {
+                return itensRepository.findByNumeroPatrimonio(busca);
+            }
+            case "antigo" -> {
+                return itensRepository.findByNAntigo(busca);
+            }
+            case "nome" -> {
+                return itensRepository.findByDescricao(busca);
+            }
+            case "valor" -> {
+                float valor = Float.parseFloat(busca.replace(",", "."));
+                return itensRepository.findByValorBem(valor);
+            }
+            case "localregistrado" -> {
+                return itensRepository.findBySalaRegistrada(busca);
+            }
+            case "localatual" -> {
+                return itensRepository.findBySalaAtual(busca);
+            }
+            case "conservacao" -> {
+                return itensRepository.findByConservacao(busca);
+            }
+            default -> throw new IllegalArgumentException("ERRO PARAMETRO INVALIDO");
         }
     }
 }
