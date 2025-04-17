@@ -5,7 +5,7 @@ CREATE TABLE itens (
     conservacao VARCHAR(50),
     valorBem NUMERIC(12, 2),
     state VARCHAR(50),
-    foto TEXT,
+    foto TEXT, 
     salaRegistrada VARCHAR(100) NOT NULL,
     salaAtual VARCHAR(100) NOT NULL
 );
