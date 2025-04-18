@@ -55,6 +55,7 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+		
 
 		<!-- Devtools (Hot reload) -->
 		<dependency>
@@ -63,6 +64,7 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
+		
 
 		<!-- Testes -->
 		<dependency>
@@ -82,7 +84,6 @@
 						<path>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
-							<version>1.18.30</version> <!-- ou a versão que preferir -->
 						</path>
 					</annotationProcessorPaths>
 				</configuration>

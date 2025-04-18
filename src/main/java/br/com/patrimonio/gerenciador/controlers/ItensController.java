@@ -1,6 +1,7 @@
 package br.com.patrimonio.gerenciador.controlers;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -38,7 +39,8 @@ public class ItensController {
         itensService.updateItem(npatrimonio, item);
     }
     @PutMapping(path = "movimentacao/{npatrimonio}")
-    public void moverItem(@PathVariable("npatrimonio") String npatrimonio, @RequestBody String salaAtual){
+    public void moverItem(@PathVariable("npatrimonio") String npatrimonio, @RequestBody Map<String, String> body) {
+        String salaAtual = body.get("salaAtual");
         itensService.moverItem(npatrimonio, salaAtual);
     }
     @GetMapping(path = "buscar")
