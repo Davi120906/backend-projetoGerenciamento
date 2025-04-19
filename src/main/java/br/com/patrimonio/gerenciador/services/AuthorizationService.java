@@ -15,13 +15,13 @@ public class AuthorizationService implements UserDetailsService {
     private UserRepository usuarioRepository;
     
     @Override
-    public UserDetails loadUserByUsername(String idAsString) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String idString) throws UsernameNotFoundException {
         try {
-            Long id = Long.parseLong(idAsString);
+            Long id = Long.parseLong(idString);
             return usuarioRepository.findById(id)
-                    .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado"));
+                    .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado com ID: " + idString));
         } catch (NumberFormatException e) {
-            throw new UsernameNotFoundException("ID inválido: " + idAsString);
+            throw new UsernameNotFoundException("ID inválido: " + idString);
         }
     }
 }
